@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-sass": "node-sass style/style.scss style/styles.css",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack serve --open --mode development"
@@ -18,6 +19,7 @@
     "eslint": "6.8.x",
     "eslint-config-airbnb-base": "14.1.x",
     "eslint-plugin-import": "2.20.x",
+    "node-sass": "^5.0.0",
     "style-loader": "^2.0.0",
     "stylelint": "13.3.x",
     "stylelint-config-standard": "20.0.x",
