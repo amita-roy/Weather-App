@@ -1,5 +1,6 @@
 $primary-color: #0b1425;
 $primary-light: #1c2f4d;
+$color-white: #fff;
 
 * {
   margin: 0;
@@ -15,4 +16,35 @@ $primary-light: #1c2f4d;
     $primary-light 41%,
     $primary-color 70%
   );
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    'current current current minmax'
+    'forecast forecast extraInfo extraInfo';
+  gap: 20px;
+  color: $color-white;
+}
+
+.current-temp,
+.minmax-temp,
+.forecast,
+.extra-info {
+  border: 2px solid $color-white;
+  padding: 20px 40px;
+}
+
+.current-temp {
+  grid-area: current;
+}
+
+.minmax-temp {
+  grid-area: minmax;
+}
+
+.forecast {
+  grid-area: forecast;
+}
+
+.extra-info {
+  grid-area: extraInfo;
 }
