@@ -16,13 +16,22 @@ $color-white: #fff;
     $primary-light 41%,
     $primary-color 70%
   );
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
     'current current current minmax'
     'forecast forecast extraInfo extraInfo';
-  gap: 20px;
   color: $color-white;
+}
+
+.container,
+.forecast,
+.extra-info {
+  display: grid;
+  gap: 20px;
+}
+
+.container,
+.forecast {
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .current-temp,
@@ -43,8 +52,17 @@ $color-white: #fff;
 
 .forecast {
   grid-area: forecast;
+
+  & div {
+    border: 2px solid $color-white;
+  }
 }
 
 .extra-info {
   grid-area: extraInfo;
+  grid-template-columns: repeat(2, 1fr);
+
+  & div {
+    border: 2px solid $color-white;
+  }
 }
