@@ -11,6 +11,14 @@ $color-white: #fff;
   font-family: 'Roboto', sans-serif;
 }
 
+.mb-small {
+  margin-bottom: 8px;
+}
+
+.b {
+  border: 2px solid $color-white;
+}
+
 .container {
   height: 100vh;
   background: radial-gradient(
@@ -19,22 +27,21 @@ $color-white: #fff;
     $primary-light 41%,
     $primary-color 70%
   );
-  grid-template-areas:
-    'current current current minmax'
-    'forecast forecast extraInfo extraInfo';
   color: $color-white;
+
+  & .container-top {
+    display: flex;
+    height: 50%;
+  }
+
+  & .container-bottom {
+    display: flex;
+    height: 50%;
+  }
 }
 
-.container,
-.forecast,
-.extra-info {
-  display: grid;
-  gap: 20px;
-}
-
-.container,
-.forecast {
-  grid-template-rows: repeat(2, 1fr);
+.daily-weather-icon img {
+  max-width: 80px;
 }
 
 .current-temp,
@@ -46,10 +53,10 @@ $color-white: #fff;
 }
 
 .current-temp {
-  grid-area: current;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex: 2;
 
   & h1 {
     font-size: 75px;
@@ -76,23 +83,65 @@ $color-white: #fff;
 }
 
 .minmax-temp {
-  grid-area: minmax;
+  flex: 1;
 }
 
 .forecast {
-  grid-area: forecast;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 
-  & div {
-    border: 2px solid $color-white;
+  & .forecastContainer,
+  & .temp-graph {
+    flex: 1;
+  }
+
+  & .forecastContainer {
+    margin-bottom: 30px;
+  }
+
+  & .daily-forecast {
+    text-align: center;
+    padding: 20px 8px;
+    background-color: rgba(28, 47, 77, 0.3);
+  }
+
+  & .forecast-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+  }
+
+  & .daily-minmax {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    & .daily-max {
+      font-size: 18px;
+    }
+
+    & .daily-min {
+      font-size: 14px;
+      margin-left: 5px;
+      color: lightgray;
+    }
   }
 }
 
 .extra-info {
-  grid-area: extraInfo;
-  grid-template-columns: repeat(2, 1fr);
+  flex: 1;
+  display: flex;
 
-  & div {
+  & .extra-info-left,
+  & .extra-info-right {
+    flex: 1;
     border: 2px solid $color-white;
+  }
+
+  & .extra-info-left {
+    margin-right: 30px;
   }
 }
 
