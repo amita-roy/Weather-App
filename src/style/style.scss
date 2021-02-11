@@ -19,6 +19,10 @@ $color-white: #fff;
   border: 2px solid $color-white;
 }
 
+.block {
+  display: block;
+}
+
 .container {
   height: 100vh;
   background: radial-gradient(
@@ -98,6 +102,12 @@ $color-white: #fff;
 
   & .forecastContainer {
     margin-bottom: 30px;
+
+    & h3 {
+      letter-spacing: 0.1rem;
+      font-weight: 400;
+      font-size: 20px;
+    }
   }
 
   & .daily-forecast {
@@ -142,6 +152,18 @@ $color-white: #fff;
 
   & .extra-info-left {
     margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .ss {
+      margin-bottom: 30px;
+    }
+
+    & .sunrise {
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -159,4 +181,11 @@ $color-white: #fff;
       padding: 5px 8px;
     }
   }
+}
+
+.sunrise-time,
+.sunset-time {
+  margin-left: 30px;
+  font-size: 22px;
+  margin-top: 15px;
 }
