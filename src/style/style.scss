@@ -128,11 +128,11 @@ $color-white: #fff;
     align-items: flex-end;
     justify-content: center;
 
-    & .daily-max {
+    & #daily-max {
       font-size: 18px;
     }
 
-    & .daily-min {
+    & #daily-min {
       font-size: 14px;
       margin-left: 5px;
       color: lightgray;
