@@ -148,15 +148,13 @@ $color-white: #fff;
   & .extra-info-right {
     flex: 1;
     border: 2px solid $color-white;
-  }
-
-  & .extra-info-left {
-    margin-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+  }
 
+  & .extra-info-left {
     & .extra-info-left-top,
     & .extra-info-left-bottom {
       display: flex;
@@ -165,6 +163,17 @@ $color-white: #fff;
     }
 
     & .extra-info-data {
+      min-width: 100px;
+    }
+  }
+
+  & .extra-info-right-data {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    & p {
       min-width: 100px;
     }
   }
