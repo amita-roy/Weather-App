@@ -15,6 +15,10 @@ $color-white: #fff;
   margin-bottom: 8px;
 }
 
+.ml {
+  margin-left: 30px;
+}
+
 .b {
   border: 2px solid $color-white;
 }
@@ -24,7 +28,7 @@ $color-white: #fff;
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   background: radial-gradient(
     circle at 368px 200px,
     #85a1a7 -7%,
@@ -33,11 +37,7 @@ $color-white: #fff;
   );
   color: $color-white;
 
-  & .container-top {
-    display: flex;
-    height: 50%;
-  }
-
+  & .container-top,
   & .container-bottom {
     display: flex;
     height: 50%;
@@ -155,14 +155,17 @@ $color-white: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
-    & .ss {
-      margin-bottom: 30px;
+    & .extra-info-left-top,
+    & .extra-info-left-bottom {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
-    & .sunrise {
-      margin-bottom: 20px;
+    & .extra-info-data {
+      min-width: 100px;
     }
   }
 }
@@ -184,8 +187,9 @@ $color-white: #fff;
 }
 
 .sunrise-time,
-.sunset-time {
-  margin-left: 30px;
-  font-size: 22px;
+.sunset-time,
+.feels-like-temp,
+.pressure-mes {
+  font-size: 20px;
   margin-top: 15px;
 }
