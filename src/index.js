@@ -1,8 +1,11 @@
 import $ from 'jquery';
+import weatherData from './api';
 
 import './style/style.scss';
 // import cloudSun from './assets/icons/cloudSun.svg';
 import sunCloud from './assets/icons/sunCloud.png';
+import App from './app';
+import Weather from './weather';
 
 const tempIconContainer = document.querySelector('.temp-icon');
 
@@ -12,12 +15,6 @@ tempLogo.src = sunCloud;
 
 tempIconContainer.appendChild(tempLogo);
 
-const apiKey = '84946c19e2232ccf022ba8e37dbacab7';
-
-const url = (lat, lon) => {
-  return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-};
-
 const renderCurrentTempInfo = (data) => {
   const temp = parseInt(data.main.temp, 0);
   $('.city').text(data.name);
@@ -25,7 +22,7 @@ const renderCurrentTempInfo = (data) => {
   $('.temperature').text(`${temp}°`);
 };
 
-const getGeolocationData = () => {
+const getGeolocation = () => {
   const promise = new Promise((res, rej) => {
     navigator.geolocation.getCurrentPosition(
       (success) => {
@@ -40,22 +37,24 @@ const getGeolocationData = () => {
   return promise;
 };
 
-const getCoordinates = async () => {
+const geoLocationData = async () => {
   let myLocation;
   try {
-    myLocation = await getGeolocationData();
+    myLocation = await getGeolocation();
     const { latitude, longitude } = myLocation.coords;
-    return { latitude, longitude };
+    const data = await weatherData(latitude, longitude);
+    renderCurrentTempInfo(data);
   } catch (error) {
-    return error.message;
+    window.alert(error);
   }
 };
 
-getCoordinates()
-  .then((cords) => cords)
-  .then((result) =>
-    fetch(url(result.latitude, result.longitude))
-      .then((result) => result.json())
-      .then((res) => renderCurrentTempInfo(res))
-  )
-  .catch((error) => alert(`Please allow location access`));
+geoLocationData();
+
+const main = () => {
+  const { main, weatherDesc, sys, name, windSpeed, dt} = ;
+  const weather = new Weather();
+  const app = new App();
+};
+
+$(main);
