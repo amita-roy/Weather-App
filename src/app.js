@@ -1,15 +1,11 @@
 class App {
-  constructor(currentWeather) {
-    this.currentWeather = currentWeather;
+  constructor() {
+    this.currentWeather = {};
     this.forecast = [];
   }
 
   getForecast() {
     return this.forecast;
-  }
-
-  getCurrentWeather() {
-    return this.currentWeather;
   }
 }
 

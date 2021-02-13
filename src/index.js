@@ -1,11 +1,10 @@
 import $ from 'jquery';
-import weatherData from './api';
+import { fetchWeatherByGeoLocation } from './api';
 
 import './style/style.scss';
-// import cloudSun from './assets/icons/cloudSun.svg';
 import sunCloud from './assets/icons/sunCloud.png';
-import App from './app';
 import Weather from './weather';
+import App from './app';
 
 const tempIconContainer = document.querySelector('.temp-icon');
 
@@ -15,45 +14,43 @@ tempLogo.src = sunCloud;
 
 tempIconContainer.appendChild(tempLogo);
 
-const renderCurrentTempInfo = (data) => {
-  const temp = parseInt(data.main.temp, 0);
-  $('.city').text(data.name);
-  $('.country').text(`, ${data.sys.country}`);
+const renderCurrentWeather = (data) => {
+  const temp = parseInt(data.temp, 10);
+  $('.city').text(data.city);
+  $('.country').text(`, ${data.country}`);
   $('.temperature').text(`${temp}°`);
+  $('#weather-condition').text(data.weatherDesc);
 };
 
-const getGeolocation = () => {
-  const promise = new Promise((res, rej) => {
-    navigator.geolocation.getCurrentPosition(
-      (success) => {
-        res(success);
-      },
-      (error) => {
-        rej(error.message);
-      }
-    );
+const getGeolocation = async () => {
+  const response = await new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 
-  return promise;
+  return response;
 };
 
-const geoLocationData = async () => {
-  let myLocation;
+const weatherByGeolocation = async () => {
   try {
-    myLocation = await getGeolocation();
+    const myLocation = await getGeolocation();
     const { latitude, longitude } = myLocation.coords;
-    const data = await weatherData(latitude, longitude);
-    renderCurrentTempInfo(data);
+    const data = await fetchWeatherByGeoLocation(latitude, longitude);
+    const weather = new Weather(
+      data.main,
+      data.weather,
+      data.sys,
+      data.name,
+      data.wind.speed,
+      data.dt
+    );
+    renderCurrentWeather(weather.getWeatherData());
+    console.log(weather.getWeatherData());
   } catch (error) {
-    window.alert(error);
+    console.log(error);
   }
 };
 
-geoLocationData();
-
 const main = () => {
-  const { main, weatherDesc, sys, name, windSpeed, dt} = ;
-  const weather = new Weather();
   const app = new App();
 };
 

@@ -6,16 +6,15 @@ const client = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/weather',
 });
 
-const weatherData = async (lat, lon) => {
-  let weatherData;
+export const fetchWeatherByGeoLocation = async (lat, lon) => {
   try {
-    weatherData = await client.get(
+    const response = await client.get(
       `?lat=${lat}&lon=${lon}&units=metric&appid=84946c19e2232ccf022ba8e37dbacab7`
     );
-    return weatherData.data;
+    return response.data;
   } catch (error) {
     return error;
   }
 };
 
-export default weatherData;
+export const fetchForecast = () => {};

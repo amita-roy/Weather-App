@@ -1,7 +1,7 @@
 class Weather {
-  constructor(main, weatherDesc, sys, name, windSpeed, date) {
+  constructor(main, weather, sys, name, windSpeed, date) {
     this.main = main;
-    this.weatherDesc = weatherDesc;
+    this.weather = weather;
     this.sys = sys;
     this.name = name;
     this.windSpeed = windSpeed;
@@ -32,7 +32,7 @@ class Weather {
       maxTemp: this.main.temp_max,
       humidity,
       pressure,
-      weatherDesc: this.weatherDesc,
+      weatherDesc: this.weather[0].description,
       windSpeed: this.windSpeed,
       country,
       sunrise,
@@ -41,6 +41,8 @@ class Weather {
       date: this.convvertDate(),
     };
   }
+
+  getWeatherIcon() {}
 }
 
 export default Weather;
