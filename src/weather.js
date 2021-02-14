@@ -1,4 +1,13 @@
 import moment from 'moment';
+// import sunCloud from './assets/icons/sunCloud.png';
+import moon from './assets/icons/moon.png';
+import smoke from './assets/icons/smoke.png';
+
+const ICON_MAP = {
+  '01n': moon,
+  '50n': smoke,
+  '50d': smoke,
+};
 
 class Weather {
   constructor(
@@ -11,8 +20,9 @@ class Weather {
     timezone = '',
     airQuality
   ) {
+    const [currentWeather] = weather;
     this.main = main;
-    this.weather = weather;
+    this.weather = currentWeather;
     this.sys = sys;
     this.name = name;
     this.windSpeed = windSpeed;
@@ -40,12 +50,6 @@ class Weather {
     return moment.unix(unixValue + this.timezone).format('hh:mm A');
   }
 
-  // convertTempToFeren() {
-  //   const { temp } = this.main.temp;
-  //   const fahrenheitTemp = temp * 1.8 + 32;
-  //   return fahrenheitTemp;
-  // }
-
   getWeatherData() {
     const { temp, humidity, pressure } = this.main;
     const { country, sunrise, sunset } = this.sys;
@@ -56,7 +60,7 @@ class Weather {
       maxTemp: this.main.temp_max,
       humidity,
       pressure,
-      weatherDesc: this.weather[0].description,
+      weatherDesc: this.weather.description,
       windSpeed: this.windSpeed,
       country,
       sunrise: this.convertTime(sunrise),
@@ -64,6 +68,7 @@ class Weather {
       city: this.name,
       date: this.convertDate(),
       airPullutionLevel: this.getAirQualityInfo(),
+      icon: this.getWeatherIcon(),
     };
   }
 
@@ -71,13 +76,8 @@ class Weather {
     return this.airqualityMes[this.airQuality];
   }
 
-  getForecastInfo() {
-    return {
-      minTemp: this.main.temp_min,
-      maxTemp: this.main.temp_max,
-      date: this.convertDate(),
-      weatherDesc: this.weather[0].description,
-    };
+  getWeatherIcon() {
+    return ICON_MAP[this.weather.icon];
   }
 }
 

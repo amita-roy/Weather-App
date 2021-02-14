@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { fetchWeather, fetchAirPollutionData } from './api';
 
-import sunCloud from './assets/icons/sunCloud.png';
 import Weather from './weather';
 import './style/style.scss';
 
@@ -9,25 +8,23 @@ const tempIconContainer = document.querySelector('.temp-icon');
 
 const tempLogo = new Image();
 
-tempLogo.src = sunCloud;
-
-tempIconContainer.appendChild(tempLogo);
-
-const renderCurrentWeather = (data) => {
-  const temp = parseInt(data.temp, 10);
-  $('.city').text(data.city);
-  $('.country').text(`, ${data.country}`);
+const renderCurrentWeather = (weather) => {
+  const temp = parseInt(weather.temp, 10);
+  $('.city').text(weather.city);
+  $('.country').text(`, ${weather.country}`);
   $('.temperature').text(`${temp}°`);
-  $('#weather-condition').text(data.weatherDesc);
-  $('#max').text(`Maximum Temperature: ${data.maxTemp}°`);
-  $('#min').text(`Minimum Temperature: ${data.minTemp}°`);
-  $('.feels-like-temp').text(`${data.feelsLike}°`);
-  $('.pressure-mes').text(`${data.pressure} hPa`);
-  $('.sunrise-time').text(data.sunrise);
-  $('.sunset-time').text(data.sunset);
-  $('#humidity-val').text(`${data.humidity}%`);
-  $('#wind-val').text(`${data.windSpeed} m/sec`);
-  $('#air-qlty').text(data.airPullutionLevel);
+  $('#weather-condition').text(weather.weatherDesc);
+  $('#max').text(`Maximum Temperature: ${weather.maxTemp}°`);
+  $('#min').text(`Minimum Temperature: ${weather.minTemp}°`);
+  $('.feels-like-temp').text(`${weather.feelsLike}°`);
+  $('.pressure-mes').text(`${weather.pressure} hPa`);
+  $('.sunrise-time').text(weather.sunrise);
+  $('.sunset-time').text(weather.sunset);
+  $('#humidity-val').text(`${weather.humidity}%`);
+  $('#wind-val').text(`${weather.windSpeed} m/sec`);
+  $('#air-qlty').text(weather.airPullutionLevel);
+  tempLogo.src = weather.icon;
+  tempIconContainer.appendChild(tempLogo);
 };
 
 const getWeather = async (city, units = 'metric') => {
