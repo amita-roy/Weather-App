@@ -1,10 +1,9 @@
 import $ from 'jquery';
-import { fetchWeatherByGeoLocation } from './api';
+import { fetchForecast, fetchWeather } from './api';
 
 import './style/style.scss';
 import sunCloud from './assets/icons/sunCloud.png';
 import Weather from './weather';
-import App from './app';
 
 const tempIconContainer = document.querySelector('.temp-icon');
 
@@ -20,38 +19,45 @@ const renderCurrentWeather = (data) => {
   $('.country').text(`, ${data.country}`);
   $('.temperature').text(`${temp}°`);
   $('#weather-condition').text(data.weatherDesc);
+  $('#max').text(`Maximum Temperature: ${data.maxTemp}°`);
+  $('#min').text(`Minimum Temperature: ${data.minTemp}°`);
+  $('.feels-like-temp').text(`${data.feelsLike}°`);
+  $('.pressure-mes').text(`${data.pressure} hPa`);
+  $('.sunrise-time').text(data.sunrise);
+  $('.sunset-time').text(data.sunset);
 };
 
-const getGeolocation = async () => {
-  const response = await new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-
-  return response;
-};
-
-const weatherByGeolocation = async () => {
+const getWeather = async (city) => {
   try {
-    const myLocation = await getGeolocation();
-    const { latitude, longitude } = myLocation.coords;
-    const data = await fetchWeatherByGeoLocation(latitude, longitude);
+    const response = await fetchWeather(city);
     const weather = new Weather(
-      data.main,
-      data.weather,
-      data.sys,
-      data.name,
-      data.wind.speed,
-      data.dt
+      response.main,
+      response.weather,
+      response.sys,
+      response.name,
+      response.wind.speed,
+      response.dt,
+      response.timezone
     );
+
     renderCurrentWeather(weather.getWeatherData());
-    console.log(weather.getWeatherData());
   } catch (error) {
-    console.log(error);
+    console.log('No data found for this city');
   }
 };
 
 const main = () => {
-  const app = new App();
+  getWeather();
+
+  const handleWeatherForm = (event) => {
+    event.preventDefault();
+    const form = $(event.target);
+    const city = form.serializeArray()[0].value;
+    getWeather(city);
+    form[0].reset();
+  };
+
+  $('#cityForm').on('submit', handleWeatherForm);
 };
 
 $(main);

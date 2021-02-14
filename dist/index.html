@@ -10,23 +10,32 @@
     <div class="container">
       <div class="container-top">
         <div class="current-temp">
-          <div class="temp-icon"></div>
-          <div class="temp-details">
-            <p class="location-info">
-              <span class="city">Stockholm, </span
-              ><span class="country">Sweden</span>
-            </p>
-            <div class="temp">
-              <h1 class="temperature">25°</h1>
-              <div class="units">
-                <p class="cel">C</p>
-                <p class="fer">F</p>
+          <form action="" id="cityForm">
+            <input type="text" placeholder="City name" name="cityInput" />
+            <input type="submit" value="Get Weather" />
+          </form>
+          <div class="tempContainer">
+            <div class="temp-icon"></div>
+            <div class="temp-details">
+              <p class="location-info">
+                <span class="city">Stockholm, </span
+                ><span class="country">Sweden</span>
+              </p>
+              <div class="temp">
+                <h1 class="temperature">25°</h1>
+                <div class="units">
+                  <p class="cel">C</p>
+                  <p class="fer">F</p>
+                </div>
               </div>
+              <p id="weather-condition">Mostly Cloudy</p>
             </div>
-            <p id="weather-condition">Mostly Cloudy</p>
           </div>
         </div>
-        <div class="minmax-temp">Minimum/Maximum temp</div>
+        <div class="minmax-temp">
+          <h4 id="max"></h4>
+          <h4 id="min"></h4>
+        </div>
       </div>
       <div class="container-bottom">
         <div class="forecast">

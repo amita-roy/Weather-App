@@ -1,11 +1,14 @@
+import moment from 'moment';
+
 class Weather {
-  constructor(main, weather, sys, name, windSpeed, date) {
+  constructor(main, weather, sys, name, windSpeed, date, timezone) {
     this.main = main;
     this.weather = weather;
     this.sys = sys;
     this.name = name;
     this.windSpeed = windSpeed;
     this.date = date;
+    this.timezone = timezone;
   }
 
   convvertDate() {
@@ -14,6 +17,10 @@ class Weather {
       weekday: 'short',
       day: 'numeric',
     });
+  }
+
+  convertTime(unixValue) {
+    return moment.unix(unixValue + this.timezone).format('hh:mm A');
   }
 
   convertTempToFeren() {
@@ -35,14 +42,14 @@ class Weather {
       weatherDesc: this.weather[0].description,
       windSpeed: this.windSpeed,
       country,
-      sunrise,
-      sunset,
+      sunrise: this.convertTime(sunrise),
+      sunset: this.convertTime(sunset),
       city: this.name,
       date: this.convvertDate(),
     };
   }
 
-  getWeatherIcon() {}
+  // getWeatherIcon() {}
 }
 
 export default Weather;
