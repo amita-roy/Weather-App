@@ -1,12 +1,34 @@
 import moment from 'moment';
-// import sunCloud from './assets/icons/sunCloud.png';
+import sunCloud from './assets/icons/sunCloud.png';
 import moon from './assets/icons/moon.png';
 import smoke from './assets/icons/smoke.png';
+import sun from './assets/icons/sun.png';
+import moonCloud from './assets/icons/moonCloud.png';
+import cloudy from './assets/icons/cloudy.png';
+import shower from './assets/icons/rain.png';
+import rain from './assets/icons/lightRain.png';
+import thunderstorm from './assets/icons/thunderstorm.png';
+import snow from './assets/icons/snow.png';
 
 const ICON_MAP = {
+  '01d': sun,
   '01n': moon,
-  '50n': smoke,
+  '02d': sunCloud,
+  '02n': moonCloud,
+  '03d': cloudy,
+  '03n': cloudy,
+  '04d': cloudy,
+  '04n': cloudy,
+  '09d': shower,
+  '09n': shower,
+  '10d': rain,
+  '11d': thunderstorm,
+  '11n': thunderstorm,
+  '10n': rain,
+  '13d': snow,
+  '13n': snow,
   '50d': smoke,
+  '50n': smoke,
 };
 
 class Weather {
