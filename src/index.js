@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import { fetchWeather, fetchAirPollutionData } from './api';
 
-import './style/style.scss';
 import sunCloud from './assets/icons/sunCloud.png';
 import Weather from './weather';
+import './style/style.scss';
 
 const tempIconContainer = document.querySelector('.temp-icon');
 
@@ -30,9 +30,9 @@ const renderCurrentWeather = (data) => {
   $('#air-qlty').text(data.airPullutionLevel);
 };
 
-const getWeather = async (city) => {
+const getWeather = async (city, units = 'metric') => {
   try {
-    const response = await fetchWeather(city);
+    const response = await fetchWeather(city, units);
     const { lon, lat } = response.coord;
 
     const airPollution = await fetchAirPollutionData(lat, lon);
@@ -58,16 +58,37 @@ const getWeather = async (city) => {
 const main = () => {
   getWeather();
 
+  const handleTempConvertToFarenheit = (event) => {
+    event.preventDefault();
+    $('#cel').removeClass('active');
+    $('#fer').addClass('active');
+    const city = $('.city').text();
+    getWeather(city, 'imperial');
+  };
+  const handleTempConvertToCelcius = (event) => {
+    event.preventDefault();
+    $('#fer').removeClass('active');
+    $('#cel').addClass('active');
+    const city = $('.city').text();
+    getWeather(city);
+  };
+
   const handleWeatherForm = (event) => {
     event.preventDefault();
     const form = $(event.target);
     const city = form.serializeArray()[0].value;
     getWeather(city);
 
+    $('#fer').on('click', handleTempConvertToFarenheit);
+    $('#cel').on('click', handleTempConvertToCelcius);
+
     form[0].reset();
   };
 
   $('#cityForm').on('submit', handleWeatherForm);
+
+  $('#fer').on('click', handleTempConvertToFarenheit);
+  $('#cel').on('click', handleTempConvertToCelcius);
 };
 
 $(main);

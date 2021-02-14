@@ -40,11 +40,11 @@ class Weather {
     return moment.unix(unixValue + this.timezone).format('hh:mm A');
   }
 
-  convertTempToFeren() {
-    const { temp } = this.main.temp;
-    const fahrenheitTemp = temp * 1.8 + 32;
-    return fahrenheitTemp;
-  }
+  // convertTempToFeren() {
+  //   const { temp } = this.main.temp;
+  //   const fahrenheitTemp = temp * 1.8 + 32;
+  //   return fahrenheitTemp;
+  // }
 
   getWeatherData() {
     const { temp, humidity, pressure } = this.main;
