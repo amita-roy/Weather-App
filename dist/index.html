@@ -11,7 +11,12 @@
       <div class="container-top">
         <div class="current-temp">
           <form action="" id="cityForm">
-            <input type="text" placeholder="City name" name="cityInput" />
+            <input
+              type="text"
+              placeholder="City name"
+              name="cityInput"
+              autofocus
+            />
             <input type="submit" value="Get Weather" />
           </form>
           <div class="tempContainer">
@@ -24,8 +29,8 @@
               <div class="temp">
                 <h1 class="temperature">25°</h1>
                 <div class="units">
-                  <p id="cel" class="active">C</p>
-                  <p id="fer">F</p>
+                  <p id="cel" class="active temp-units">C</p>
+                  <p id="fer" class="temp-units">F</p>
                 </div>
               </div>
               <p id="weather-condition">Mostly Cloudy</p>
