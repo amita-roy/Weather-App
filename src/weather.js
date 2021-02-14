@@ -8,7 +8,8 @@ class Weather {
     name = '',
     windSpeed,
     date,
-    timezone = ''
+    timezone = '',
+    airQuality
   ) {
     this.main = main;
     this.weather = weather;
@@ -17,6 +18,14 @@ class Weather {
     this.windSpeed = windSpeed;
     this.date = date;
     this.timezone = timezone;
+    this.airQuality = airQuality;
+    this.airqualityMes = {
+      1: 'Good',
+      2: 'Fair',
+      3: 'Moderate',
+      4: 'Poor',
+      5: 'Very Poor',
+    };
   }
 
   convertDate() {
@@ -54,7 +63,12 @@ class Weather {
       sunset: this.convertTime(sunset),
       city: this.name,
       date: this.convertDate(),
+      airPullutionLevel: this.getAirQualityInfo(),
     };
+  }
+
+  getAirQualityInfo() {
+    return this.airqualityMes[this.airQuality];
   }
 
   getForecastInfo() {

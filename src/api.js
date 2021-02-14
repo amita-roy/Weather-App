@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-// const apiKey = '84946c19e2232ccf022ba8e37dbacab7';
-
 const client = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/',
 });
 
+const apiKey = '84946c19e2232ccf022ba8e37dbacab7';
+
 export const fetchWeather = async (city = 'stockholm') => {
   try {
     const response = await client.get(
-      `weather?q=${city}&units=metric&appid=84946c19e2232ccf022ba8e37dbacab7`
+      `weather?q=${city}&units=metric&appid=${apiKey}`
     );
     return response.data;
   } catch (error) {
@@ -17,10 +17,10 @@ export const fetchWeather = async (city = 'stockholm') => {
   }
 };
 
-export const fetchForecast = async (city = 'stockholm') => {
+export const fetchAirPollutionData = async (lat, lon) => {
   try {
     const response = await client.get(
-      `forecast?q=${city}&units=metric&appid=84946c19e2232ccf022ba8e37dbacab7`
+      `air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
     );
     return response.data;
   } catch (error) {
