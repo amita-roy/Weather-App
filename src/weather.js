@@ -1,7 +1,15 @@
 import moment from 'moment';
 
 class Weather {
-  constructor(main, weather, sys, name, windSpeed, date, timezone) {
+  constructor(
+    main,
+    weather,
+    sys = {},
+    name = '',
+    windSpeed,
+    date,
+    timezone = ''
+  ) {
     this.main = main;
     this.weather = weather;
     this.sys = sys;
@@ -11,7 +19,7 @@ class Weather {
     this.timezone = timezone;
   }
 
-  convvertDate() {
+  convertDate() {
     const dateObject = new Date(this.date * 1000);
     return dateObject.toLocaleString('en-US', {
       weekday: 'short',
@@ -45,11 +53,18 @@ class Weather {
       sunrise: this.convertTime(sunrise),
       sunset: this.convertTime(sunset),
       city: this.name,
-      date: this.convvertDate(),
+      date: this.convertDate(),
     };
   }
 
-  // getWeatherIcon() {}
+  getForecastInfo() {
+    return {
+      minTemp: this.main.temp_min,
+      maxTemp: this.main.temp_max,
+      date: this.convertDate(),
+      weatherDesc: this.weather[0].description,
+    };
+  }
 }
 
 export default Weather;

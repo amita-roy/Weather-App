@@ -15,6 +15,10 @@ $color-white: #fff;
   margin-bottom: 8px;
 }
 
+.mt-large {
+  margin-top: 40px;
+}
+
 .ml {
   margin-left: 30px;
 }
@@ -156,12 +160,17 @@ $color-white: #fff;
     flex: 1;
     border: 2px solid $color-white;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+  }
+
+  & .extra-info-right {
+    justify-content: center;
   }
 
   & .extra-info-left {
+    flex-direction: column;
+    justify-content: space-evenly;
+
     & .extra-info-left-top,
     & .extra-info-left-bottom {
       display: flex;
@@ -177,7 +186,6 @@ $color-white: #fff;
   & .extra-info-right-data {
     display: flex;
     width: 100%;
-    justify-content: center;
     align-items: center;
 
     & p {

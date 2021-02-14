@@ -25,6 +25,21 @@ const renderCurrentWeather = (data) => {
   $('.pressure-mes').text(`${data.pressure} hPa`);
   $('.sunrise-time').text(data.sunrise);
   $('.sunset-time').text(data.sunset);
+  $('#humidity-val').text(`${data.humidity}%`);
+  $('#wind-val').text(`${data.windSpeed} m/sec`);
+};
+
+const renderForecast = (data) => {
+  console.log(data[0].dt);
+};
+
+const getForecast = async (city) => {
+  try {
+    const response = await fetchForecast(city);
+    renderForecast(response.list, response.timezone, response.name);
+  } catch (error) {
+    console.log('No data found for this city');
+  }
 };
 
 const getWeather = async (city) => {
@@ -48,12 +63,14 @@ const getWeather = async (city) => {
 
 const main = () => {
   getWeather();
+  getForecast();
 
   const handleWeatherForm = (event) => {
     event.preventDefault();
     const form = $(event.target);
     const city = form.serializeArray()[0].value;
     getWeather(city);
+    getForecast(city);
     form[0].reset();
   };
 
