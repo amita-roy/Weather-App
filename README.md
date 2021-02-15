@@ -1,13 +1,13 @@
 # Weather App
 
-> In this project I have used the api https://openweathermap.org/ for weather data. The current weather information is displayed for a any city that we enter. Along with weather information, I'm fetching the air pollution data aas well and displaying the quality of air from 1 to 5, Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+> In this project I have used the API https://openweathermap.org/ for weather data. The current weather information is displayed for any city that we enter. Along with weather information, I'm fetching the air pollution data as well and displaying the quality of air from 1 to 5, Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
 
-- I have used a default Stockholm as a default city for first load.
-- I have used Axios to work with asyncronous data.
-- I have used momentjs for date, time and timezone conversion
+- I have used default Stockholm as a default city for the first load.
+- I have used Axios to work with asynchronous data.
+- I have used momentjs for a date, time, and timezone conversion
 - Enter the city name to get the weather information.
 - Weather icons are also changing as per the condition of the weather and as per the day or night.
-- Temerature can be changed on the click of 'C' and 'F' to display in Celcius or Farenheit.
+- Temperature can be changed with the click of 'C' and 'F' to display in Celcius or Fahrenheit.
 
 > Main Page
 > ![App](./src/assets/images/homepage.png)
