@@ -14,8 +14,8 @@ const renderCurrentWeather = (weather) => {
   $('.country').text(`, ${weather.country}`);
   $('.temperature').text(`${temp}°`);
   $('#weather-condition').text(weather.weatherDesc);
-  $('#max').text(`Maximum Temperature: ${weather.maxTemp}°`);
-  $('#min').text(`Minimum Temperature: ${weather.minTemp}°`);
+  $('#max').text(`${weather.maxTemp}°`);
+  $('#min').text(`${weather.minTemp}°`);
   $('.feels-like-temp').text(`${weather.feelsLike}°`);
   $('.pressure-mes').text(`${weather.pressure} hPa`);
   $('.sunrise-time').text(weather.sunrise);

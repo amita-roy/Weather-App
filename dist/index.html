@@ -8,78 +8,49 @@
   </head>
   <body>
     <div class="container">
-      <div class="container-top">
-        <div class="current-temp">
-          <form action="" id="cityForm">
-            <input
-              type="text"
-              placeholder="City name"
-              name="cityInput"
-              autofocus
-            />
-            <input type="submit" value="Get Weather" />
-          </form>
-          <div class="tempContainer">
-            <div class="temp-icon"></div>
-            <div class="temp-details">
-              <p class="location-info">
-                <span class="city">Stockholm, </span
-                ><span class="country">Sweden</span>
-              </p>
-              <div class="temp">
-                <h1 class="temperature">25°</h1>
-                <div class="units">
-                  <p id="cel" class="active temp-units">C</p>
-                  <p id="fer" class="temp-units">F</p>
-                </div>
-              </div>
-              <p id="weather-condition">Mostly Cloudy</p>
+      <form action="" id="cityForm">
+        <input type="text" placeholder="City name" name="cityInput" autofocus />
+        <input type="submit" value="Get Weather" />
+      </form>
+      <div class="current-temp">
+        <div class="temp-icon"></div>
+        <div class="temp-details">
+          <p class="location-info">
+            <span class="city">Stockholm, </span
+            ><span class="country">Sweden</span>
+          </p>
+          <div class="temp">
+            <h1 class="temperature">25°</h1>
+            <div class="units">
+              <p id="cel" class="active temp-units">C</p>
+              <p id="fer" class="temp-units">F</p>
             </div>
           </div>
-        </div>
-        <div class="minmax-temp">
-          <h4 id="max"></h4>
-          <h4 id="min"></h4>
+          <!-- <p id="weather-condition">Mostly Cloudy</p> -->
         </div>
       </div>
-      <div class="container-bottom">
-        <div class="extra-info">
-          <div class="extra-info-left">
-            <div class="extra-info-left-top">
-              <p class="extra-info-data">
-                Feels like <span class="feels-like-temp block">-14°</span>
-              </p>
-              <p class="extra-info-data ml">
-                Pressure
-                <span class="pressure-mes block">1030 hPa</span>
-              </p>
+      <div class="bottom-info">
+        <div class="bottom-info-left">
+          <div class="minmax-temp">
+            <div class="min min-width">
+              <p>Min.</p>
+              <h4 id="min" class="mt"></h4>
             </div>
-            <div class="extra-info-left-bottom">
-              <p class="extra-info-data">
-                Sunrise <span class="sunrise-time block">6:55 AM</span>
-              </p>
-              <p class="extra-info-data ml">
-                Sunset <span class="sunset-time block">5:55 PM</span>
-              </p>
+            <div class="max min-width">
+              <p>Max.</p>
+              <h4 id="max"></h4>
             </div>
           </div>
-          <div class="extra-info-right">
-            <div class="ex-Info-rightContainer">
-              <div class="extra-info-right-data">
-                <p>Humidity</p>
-                <h2 id="humidity-val" class="ml"></h2>
-              </div>
-              <div class="extra-info-right-data mt-large">
-                <p>Wind</p>
-                <h2 id="wind-val" class="ml"></h2>
-              </div>
-              <div class="extra-info-right-data mt-large">
-                <p>Air Quality</p>
-                <h2 id="air-qlty" class="ml">Very Good</h2>
-              </div>
-            </div>
+          <div class="extra-info">
+            <p class="min-width">
+              Sunrise <span class="sunrise-time block">6:55 AM</span>
+            </p>
+            <p class="min-width">
+              Sunset <span class="sunset-time block">5:55 PM</span>
+            </p>
           </div>
         </div>
+        <div class="bottom-info-right">Right</div>
       </div>
     </div>
     <script src="main.js"></script>

@@ -10,6 +10,14 @@ $color-white: #fff;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+body {
+  background: radial-gradient(
+    circle at 368px 200px,
+    #85a1a7 -7%,
+    $primary-light 41%,
+    $primary-color 70%
+  );
+}
 
 .mb-small {
   margin-bottom: 8px;
@@ -31,172 +39,125 @@ $color-white: #fff;
   display: block;
 }
 
+.min-width {
+  min-width: 100px;
+}
+
 .container {
   min-height: 100vh;
-  background: radial-gradient(
-    circle at 368px 200px,
-    #85a1a7 -7%,
-    $primary-light 41%,
-    $primary-color 70%
-  );
+  border: 2px solid white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: $color-white;
-
-  & .container-top,
-  & .container-bottom {
-    display: flex;
-    min-height: 50vh;
-  }
 }
 
 .daily-weather-icon img {
   max-width: 80px;
 }
 
-.current-temp,
-.minmax-temp,
-.forecast,
-.extra-info {
-  padding: 20px 40px;
-}
-
 .current-temp {
-  flex: 2;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.tempContainer {
-  display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
 
   & h1 {
-    font-size: 75px;
+    font-size: 98px;
     font-weight: 400;
   }
 
   & .location-info {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 300;
   }
 
   & #weather-condition {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 300;
   }
 
+  & .temp-details {
+    width: 50%;
+  }
+
   & .temp-icon {
-    // border: 2px solid $color-white;
+    width: 50%;
 
     & img {
-      max-width: 300px;
+      width: 100%;
     }
   }
+}
+
+.temperature {
+  min-width: 150px;
+}
+
+.bottom-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.bottom-info-left,
+.bottom-info-right {
+  width: 50%;
+}
+
+.bottom-info-left {
+  padding-right: 20px;
+}
+
+.bottom-info-right {
+  padding-left: 20px;
+  border-left: 5px solid white;
+}
+
+.minmax-temp,
+.extra-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .minmax-temp {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.forecast {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-
-  & .forecastContainer {
-    width: 100%;
-
-    & h3 {
-      letter-spacing: 0.1rem;
-      font-weight: 400;
-      font-size: 20px;
-    }
+  & p {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(246, 246, 246, 0.835);
   }
 
-  & .daily-forecast {
-    text-align: center;
-    padding: 20px 8px;
-    background-color: rgba(28, 47, 77, 0.3);
-  }
-
-  & .forecast-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px;
-  }
-
-  & .daily-minmax {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-
-    & #daily-max {
-      font-size: 18px;
-    }
-
-    & #daily-min {
-      font-size: 14px;
-      margin-left: 5px;
-      color: lightgray;
-    }
+  & h4 {
+    font-size: 24px;
+    margin-top: 6px;
+    font-weight: 400;
   }
 }
 
 .extra-info {
-  flex: 1;
-  display: flex;
+  margin-top: 30px;
 
-  & .extra-info-left,
-  & .extra-info-right {
-    flex: 1;
-    border: 2px solid $color-white;
-    display: flex;
-    align-items: center;
+  & p {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(246, 246, 246, 0.835);
   }
 
-  & .extra-info-right {
-    justify-content: center;
-  }
-
-  & .extra-info-left {
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    & .extra-info-left-top,
-    & .extra-info-left-bottom {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    & .extra-info-data {
-      min-width: 100px;
-    }
-  }
-
-  & .extra-info-right-data {
-    display: flex;
-    width: 100%;
-    align-items: center;
-
-    & p {
-      min-width: 100px;
-    }
+  & p span {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: white;
   }
 }
 
 .temp {
   display: flex;
   align-items: center;
-  margin: 15px 0;
 
   .units {
     margin-left: 15px;
@@ -209,8 +170,6 @@ $color-white: #fff;
   }
 }
 
-.sunrise-time,
-.sunset-time,
 .feels-like-temp,
 .pressure-mes {
   font-size: 20px;
@@ -226,7 +185,7 @@ $color-white: #fff;
 }
 
 input[type='text'] {
-  width: 500px;
+  width: 600px;
   padding: 15px 20px;
   border-radius: 6px;
   border: none;
