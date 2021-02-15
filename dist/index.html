@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
-      integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg=="
-      crossorigin="anonymous"
-    ></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <form action="" id="cityForm">
-        <input type="text" placeholder="City name" name="cityInput" autofocus />
+        <input
+          type="text"
+          placeholder="City name"
+          name="cityInput"
+          autofocus
+          required
+        />
         <input type="submit" value="Get Weather" />
       </form>
       <div class="current-temp">
@@ -88,6 +89,7 @@
         </div>
       </div>
     </div>
+
     <script src="main.js"></script>
   </body>
 </html>
