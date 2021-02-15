@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+      integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg=="
+      crossorigin="anonymous"
+    ></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -26,9 +31,9 @@
               <p id="fer" class="temp-units">F</p>
             </div>
           </div>
-          <!-- <p id="weather-condition">Mostly Cloudy</p> -->
         </div>
       </div>
+
       <div class="bottom-info">
         <div class="bottom-info-left">
           <div class="minmax-temp">
@@ -49,15 +54,37 @@
               Sunset <span class="sunset-time block">5:55 PM</span>
             </p>
           </div>
+          <div class="aq-wd">
+            <div class="weather-desc">
+              <p class="condition">Condition</p>
+              <p id="weather-condition">Mostly Cloudy</p>
+            </div>
+            <div class="air-quality">
+              <p>Air Quality</p>
+              <h2 id="air-qlty">Very Good</h2>
+            </div>
+          </div>
         </div>
         <div class="bottom-info-right">
-          <p class="extra-info-data">
-            Feels like <span class="feels-like-temp block">-14°</span>
-          </p>
-          <p class="extra-info-data">
-            Pressure
-            <span class="pressure-mes block">1030 hPa</span>
-          </p>
+          <div class="fp">
+            <p class="extra-info-data">
+              Feels like <span class="feels-like-temp block">-14°</span>
+            </p>
+            <p class="extra-info-data">
+              Pressure
+              <span class="pressure-mes block">1030 hPa</span>
+            </p>
+          </div>
+          <div class="hw">
+            <div>
+              <p class="hw-p">Humidity</p>
+              <h2 id="humidity-val"></h2>
+            </div>
+            <div>
+              <p class="hw-p">Wind</p>
+              <h2 id="wind-val"></h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>

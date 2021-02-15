@@ -21,7 +21,7 @@ const renderCurrentWeather = (weather) => {
   $('.sunrise-time').text(weather.sunrise);
   $('.sunset-time').text(weather.sunset);
   $('#humidity-val').text(`${weather.humidity}%`);
-  $('#wind-val').text(`${weather.windSpeed} m/sec`);
+  $('#wind-val').text(`${weather.windSpeed} m/s`);
   $('#air-qlty').text(weather.airPullutionLevel);
   tempLogo.src = weather.icon;
   tempIconContainer.appendChild(tempLogo);
@@ -43,7 +43,7 @@ const getWeather = async (city, units = 'metric') => {
       response.wind.speed,
       response.dt,
       response.timezone,
-      airPollutionlevel
+      airPollutionlevel,
     );
 
     renderCurrentWeather(weather.getWeatherData());

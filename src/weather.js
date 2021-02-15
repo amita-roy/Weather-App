@@ -40,7 +40,7 @@ class Weather {
     windSpeed,
     date,
     timezone = '',
-    airQuality
+    airQuality,
   ) {
     const [currentWeather] = weather;
     this.main = main;
