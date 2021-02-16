@@ -14,7 +14,7 @@ const renderCurrentWeather = (weather) => {
     `radial-gradient(
     rgba(0, 0, 0, 0.45), 
     transparent
-  ),url(${weather.background})`
+  ),url(${weather.background})`,
   );
   const temp = parseInt(weather.temp, 10);
   $('.city').text(weather.city);
@@ -50,7 +50,7 @@ const getWeather = async (city, units = 'metric') => {
       response.wind.speed,
       response.dt,
       response.timezone,
-      airPollutionlevel
+      airPollutionlevel,
     );
 
     renderCurrentWeather(weather.getWeatherData());
