@@ -64,6 +64,21 @@ Start server with:
 - Twitter: [@Amita](https://twitter.com/AmitaRoy14)
 - Linkedin: [@Amita](https://www.linkedin.com/in/amita-roy-3b823b68/)
 
+## Acknowledgments
+
+- Stock images from unsplash
+
+  - Photo by [Dawid Zawiła](https://unsplash.com/@davealmine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Luca Huter](https://unsplash.com/@lucahuter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Gabriele Diwald](https://unsplash.com/@gabrielediwald?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Noah Silliman](https://unsplash.com/@noahsilliman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Adam Edgerton](https://unsplash.com/@adamedgerton?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Tim Rüßmann](https://unsplash.com/@timaesthetic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Quinton Coetzee](https://unsplash.com/@quinietjie?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Dimitris Pallas](https://unsplash.com/@palz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Chandler Cruttenden](https://unsplash.com/@chanphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  - Photo by [Paul Gilmore](https://unsplash.com/@paulgilmore_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
