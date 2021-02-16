@@ -8,6 +8,8 @@
 - Enter the city name to get the weather information.
 - Weather icons are also changing as per the condition of the weather and as per the day or night.
 - Temperature can be changed with the click of 'C' and 'F' to display in Celcius or Fahrenheit.
+- App background is dynamic, as image will change as per the weather condition in the city.
+- I will add loader functionality in future updates.
 
 > Main Page
 > ![App](./src/assets/images/homepage.png)
