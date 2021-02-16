@@ -9,6 +9,13 @@ const tempIconContainer = document.querySelector('.temp-icon');
 const tempLogo = new Image();
 
 const renderCurrentWeather = (weather) => {
+  $('body').css(
+    'background-image',
+    `radial-gradient(
+    rgba(0, 0, 0, 0.45), 
+    transparent
+  ),url(${weather.background})`
+  );
   const temp = parseInt(weather.temp, 10);
   $('.city').text(weather.city);
   $('.country').text(`, ${weather.country}`);
@@ -43,7 +50,7 @@ const getWeather = async (city, units = 'metric') => {
       response.wind.speed,
       response.dt,
       response.timezone,
-      airPollutionlevel,
+      airPollutionlevel
     );
 
     renderCurrentWeather(weather.getWeatherData());

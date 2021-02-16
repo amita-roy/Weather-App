@@ -12,13 +12,8 @@ $color-white: #fff;
 }
 
 body {
-  background:
-    radial-gradient(
-      circle at 368px 200px,
-      #85a1a7 -7%,
-      $primary-light 41%,
-      $primary-color 70%
-    );
+  background-position: center;
+  background-size: cover;
 }
 
 .block {
