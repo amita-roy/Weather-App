@@ -12,7 +12,7 @@
 - I will add loader functionality in future updates.
 
 > Main Page
-> ![App](./src/assets/images/homepage.png)
+> ![App](./screenshots/homepage.png)
 
 ## Built With
 
