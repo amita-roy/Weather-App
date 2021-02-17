@@ -26,7 +26,7 @@
 
 ## Live Demo
 
-[Weather-App](https://weather-app-sable-two.vercel.app/)
+[Weather-App](https://weather-app-git-development.royamita.vercel.app/)
 
 ### Prerequisites
 
